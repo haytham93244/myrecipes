@@ -1,7 +1,7 @@
 <%= render 'shared/page_title' ,title: @recipe.name %>
 
 <div class="well col-md-8 col-md-offset-2">
-  <h4 class="center description"><strong>Description: </strong></h4>
+  <h4 class="center description"><strong>Steps: </strong></h4>
   <hr />
   <%= @recipe.description %>
   <hr />
@@ -34,5 +34,7 @@
   <%= link_to "Delete this recipe", recipe_path(@recipe), method: :delete,
                 data: { confirm: "Are you sure you want to delete?" },
                 class: "btn btn-xs btn-danger" %>
+  <%= link_to "Return to recipes listing", recipes_path, 
+                class: "btn btn-xs btn-primary" %>
   </div> 
 </div>
