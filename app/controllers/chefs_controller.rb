@@ -24,7 +24,6 @@ class ChefsController < ApplicationController
     end
 
     def show
-        
         @chef_recipes = @chef.recipes.paginate(page: params[:page], per_page: 5)
     end
 
@@ -44,10 +43,11 @@ class ChefsController < ApplicationController
 
     def destroy
         if !@chef.admin?
-        @chef.destroy
-        flash[:danger] = "Chef and all associated recipes have been deleted"
-        redirect_to chefs_path
-      end
+            @chef.destroy
+            flash[:danger] = "Chef and all associated recipes have been deleted"
+            redirect_to chefs_path
+        end
+    end
 
     private 
 
@@ -67,8 +67,9 @@ class ChefsController < ApplicationController
     end
 
     def require_admin
-        if logged_in? & !current_chef.admin?
+        if logged_in? && !current_chef.admin?
         flash[:danger] = "Only admin users can perform that action"
         redirect_to root_path
       end
+    end
 end
