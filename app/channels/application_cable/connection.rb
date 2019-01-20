@@ -8,7 +8,7 @@ module ApplicationCable
     def connect 
       self.current_chef = find_current_user
     end
-
+    
     def disconnect 
     end
 
