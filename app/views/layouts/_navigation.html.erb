@@ -22,6 +22,7 @@
           <li><%= link_to "Ingredients", ingredients_path %></li>
           <% if logged_in? %>
              <li><%= link_to "New Recipe", new_recipe_path %></li>
+             <li><%= link_to "ChefChat", chat_path %></li>
           <% end %>
           <% if logged_in? && current_chef.admin? %>
               <li><%= link_to "New Ingredient", new_ingredient_path %></li>
