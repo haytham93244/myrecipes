@@ -13,5 +13,5 @@ class Chef < ApplicationRecord
     default_scope -> {order(updated_at: :desc)}
     has_many :comments, dependent: :destroy
     has_many :messages, dependent: :destroy
-    
+    has_many :likes, dependent: :destroy
 end

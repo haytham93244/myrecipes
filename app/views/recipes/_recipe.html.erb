@@ -18,14 +18,34 @@
                 </span>
             </p>
 
+                <div class="row liking">
+                    <div class="row col-md-8 col-md-offset-2">
+                        <%= link_to like_recipe_path(recipe, like: true), method: :post do %>
+                        <i class="glyphicon glyphicon-thumbs-up"></i> 
+                        <%= recipe.thumbs_up_sum %>
+                        <% end %> ||
+                        <%= link_to like_recipe_path(recipe, like: false), method: :post do %>
+                        <i class="glyphicon glyphicon-thumbs-down"></i> 
+                        <%= recipe.thumbs_down_sum %>
+                        <% end %>
+                    </div>
+                </div>
+
+
+
+
             <% if logged_in? && (current_chef == recipe.chef || current_chef.admin?)   %>
-            <div class="recipe-actions">
-                <%= link_to "Edit this recipe", edit_recipe_path(recipe), 
-                                class: 'btn btn-xs btn-warning' %>
-                <%= link_to "Delete this recipe", recipe_path(recipe), method: :delete,
-                                data: { confirm: "Are you sure you want to delete?" },
-                                class: "btn btn-xs btn-danger" %>
-            </div>                        
+                <div class="recipe-actions">
+                    <%= link_to "Edit this recipe", edit_recipe_path(recipe), 
+                                    class: 'btn btn-xs btn-warning' %>
+                    <%= link_to "Delete this recipe", recipe_path(recipe), method: :delete,
+                                    data: { confirm: "Are you sure you want to delete?" },
+                                    class: "btn btn-xs btn-danger" %>
+                </div>        
+                
+
+
+
           <% end %>
         </div>
         
